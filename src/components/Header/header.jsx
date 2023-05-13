@@ -2,17 +2,14 @@ import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { styled } from '@mui/system';
 import Logo from '../../assets/laith_fitness_website_logo_tiny_31789308-c473-4487-8fd9-cb0caf465735.png';
+import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
 
 const HeaderButton = styled(Button)`
   color: white;
@@ -22,16 +19,31 @@ const HeaderButton = styled(Button)`
 const mainMenuItems = [
     { label: 'Home', link: '/' },
     {
-        label: 'Calculators',
+        label: 'Fitness',
         link: '#',
         subMenu: [
-            { label: 'Body Mass Index Calculator', link: '/BMI' },
-            { label: 'Calorie Intake Calculator', link: '/calorie' },
-            { label: 'Macronutrient Calculator', link: '/macro' },
+            { label: 'Workout Suggestions', link: '/workout' },
+            { label: 'Exercises by Muscle', link: '/muscle' },
         ],
     },
-    { label: 'Workout Suggestions', link: '/workout' },
-    { label: 'Nutrition Analysis', link: '/diet-suggestions' },
+    {
+        label: 'Nutrition',
+        link: '#',
+        subMenu: [
+            { label: 'Nutrition Analysis', link: '/nutrition' },
+            { label: 'Recipe Finder', link: '/recipe' },
+        ],
+    },
+    {
+        label: 'Health Calculators',
+        link: '#',
+        subMenu: [
+            { label: 'One Rep Max Calculator', link: '/ORM' },
+            { label: 'Body Mass Index Calculator', link: '/BMI' },
+            { label: 'Macro Nutrient Calculator', link: '/macro' },
+            { label: 'Calorie Intake Calculator', link: '/calorie' },
+        ],
+    },
     { label: 'Blog', link: '/blog' },
 ];
 
@@ -75,6 +87,7 @@ function Header() {
                             }
                         })}
                     </Box>
+                    <Box sx={{ flexGrow: 1 }} />
                     <HeaderButton href={mainMenuItems[mainMenuItems.length - 1].link}>
                         {mainMenuItems[mainMenuItems.length - 1].label}
                     </HeaderButton>
@@ -115,4 +128,5 @@ function Header() {
     );
 }
 
-export default Header;    
+export default Header;
+

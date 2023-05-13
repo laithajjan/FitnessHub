@@ -20,23 +20,25 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        paddingTop: theme.spacing(6),
-        paddingBottom: theme.spacing(6),
-        backgroundColor: theme.palette.background.default,
+        paddingTop: theme.spacing(10),
+        paddingBottom: theme.spacing(10),
+        // backgroundColor: theme.palette.background.default,
         minHeight: "100vh",
     },
     title: {
         fontWeight: "bold",
         fontSize: "3rem",
         marginBottom: theme.spacing(4),
-        color: theme.palette.primary.main,
-        textShadow: `2px 2px ${theme.palette.grey[500]}`,
+        color: theme.palette.text.primary,
     },
     form: {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         padding: theme.spacing(4),
+        marginTop: theme.spacing(4),
+        marginBottom: theme.spacing(4),
+        width: '100%',
         backgroundColor: theme.palette.common.white,
         borderRadius: theme.shape.borderRadius,
         border: `1px solid ${theme.palette.grey[300]}`,
@@ -122,7 +124,6 @@ const RecipeFinder = () => {
                     >
                         Search
                     </Button>
-
                 </form>
             </Paper>
             {recipes.length > 0 && (
@@ -156,4 +157,3 @@ const RecipeFinder = () => {
 };
 
 export default RecipeFinder;
- 
