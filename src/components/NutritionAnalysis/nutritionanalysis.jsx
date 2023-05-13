@@ -3,6 +3,8 @@ import axios from 'axios';
 import {
     Box,
     Button,
+    Card,
+    CardContent,
     Container,
     Paper,
     Table,
@@ -19,7 +21,6 @@ const NutritionAnalysis = () => {
     const [query, setQuery] = useState('');
     const [nutritionData, setNutritionData] = useState(null);
     const API_KEY = process.env.REACT_APP_NUTRITION_API_KEY;
-
 
     const fetchNutritionData = async () => {
         try {
@@ -44,32 +45,37 @@ const NutritionAnalysis = () => {
                 .toFixed(2)
         ) || 0;
 
-
     return (
         <Container maxWidth="sm">
-            <Box my={4} textAlign="center">
-                <Typography variant="h4" component="h1" gutterBottom>
-                    Nutrition Analysis
-                </Typography>
-                <TextField
-                    label="Enter query"
-                    variant="outlined"
-                    fullWidth
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                />
-                <Box mt={2}>
-                    <Button
-                        color="primary"
-                        variant="contained"
-                        onClick={fetchNutritionData}
-                    >
-                        Analyze
-                    </Button>
-                </Box>
+            <Box my={12}>
+                <Card sx={{ minHeight: '500px' }}>
+                    <CardContent>
+                        <Box textAlign="center">
+                            <Typography variant="h4" component="h1" gutterBottom>
+                                Nutrition Analysis
+                            </Typography>
+                            <TextField
+                                label="Enter query"
+                                variant="outlined"
+                                fullWidth
+                                value={query}
+                                onChange={(e) => setQuery(e.target.value)}
+                            />
+                            <Box mt={2}>
+                                <Button
+                                    color="primary"
+                                    variant="contained"
+                                    onClick={fetchNutritionData}
+                                >
+                                    Analyze
+                                </Button>
+                            </Box>
+                        </Box>
+                    </CardContent>
+                </Card>
             </Box>
             {nutritionData && (
-                <Box my={4}>
+                <Box my={12}>
                     <TableContainer component={Paper}>
                         <Table>
                             <TableHead>
@@ -98,6 +104,7 @@ const NutritionAnalysis = () => {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
+                                {/* Your existing table rows */}
                                 <TableRow>
                                     <TableCell component="th" scope="row">
                                         Total Calories
@@ -127,7 +134,8 @@ const NutritionAnalysis = () => {
                                         Total Sodium
                                     </TableCell>
                                     <TableCell align="center">
-                                        {sumNutritionData('sodium_mg')} mg
+                                       
+                                    {sumNutritionData('sodium_mg')} mg
                                     </TableCell>
                                 </TableRow>
                                 <TableRow>
