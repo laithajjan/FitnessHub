@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
         color: '#ffffff',
         backgroundColor: '#1e88e5',
         padding: '16px 48px',
-        borderRadius: '50px', 
+        borderRadius: '50px',
         textTransform: 'none',
         boxShadow: '0 3px 5px rgba(0, 0, 0, 0.2)',
         transition: 'background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
@@ -51,6 +51,10 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: 345,
         margin: '0 16px',
         marginBottom: '32px',
+        height: '500px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
     },
     cardMedia: {
         height: 140,
@@ -65,6 +69,16 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '18px',
         color: '#555',
         marginBottom: '16px',
+        minHeight: '96px',
+        maxHeight: '200px'
+    },
+    exploreNowHeader: {
+        fontSize: '2.5rem',
+        fontWeight: 'bold',
+        color: '#333',
+        marginBottom: '24px',
+        marginTop: '48px',
+        padding: '16px 0',
     },
     cardButton: {
         fontSize: '16px',
@@ -72,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
         color: '#ffffff',
         backgroundColor: '#1e88e5',
         padding: '12px 24px',
-        borderRadius: '50px', 
+        borderRadius: '50px',
         textTransform: 'none',
         boxShadow: '0 3px 5px rgba(0, 0, 0, 0.2)',
         transition: 'background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
@@ -105,6 +119,9 @@ function Hero() {
                 Get started
             </Button>
         </div>
+        <Typography variant="h2" align="center" className={classes.exploreNowHeader}>
+            Explore Now
+        </Typography>
         <div className={classes.cardContainer} ref={cardsRef}>
             <Card className={classes.card}>
                 <CardMedia
@@ -114,10 +131,10 @@ function Hero() {
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2" className={classes.cardTitle}>
-                        BMI Calculator
+                        Macronutrient Calculator
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p" className={classes.cardDescription}>
-                        FitnessHub's BMI calculator measures a user's body mass index based on their height and weight to help them understand their current health status and take steps towards a healthier lifestyle.
+                        Boost your nutrition using FitnessHub's Macronutrient Calculator. Enter age, height, weight, activity level, and goal for a tailored macronutrient plan. Efficiently fuel your body and attain your objectives with personalized recommendations.
                     </Typography>
                     <Button variant="contained" className={classes.cardButton}>
                         Learn More
@@ -132,11 +149,10 @@ function Hero() {
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2" className={classes.cardTitle}>
-                        Calorie Intake Calculator
+                        Nutrition Analysis
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p" className={classes.cardDescription}>
-                        FitnessHub's calorie intake calculator helps users estimate the number of calories they need to consume daily based on their age, gender, weight, and activity level.
-                    </Typography>
+                        Discover the power of informed eating with FitnessHub's Nutrition Analysis Page. Input your food and quantity, like 200 grams of chicken, to promptly access detailed nutrition facts. Make smarter choices and enhance your diet effortlessly.                    </Typography>
                     <Button variant="contained" className={classes.cardButton}>
                         Learn More
                     </Button>
@@ -150,10 +166,10 @@ function Hero() {
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2" className={classes.cardTitle}>
-                        One Rep Max Calculator
+                        Workout Suggestions
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p" className={classes.cardDescription}>
-                        FitnessHub's one rep max calculator estimates the maximum weight a user can lift for a single repetition based on their previous lifts. This helps users track their progress and set achievable fitness goals.
+                        Improve your fitness through FitnessHub's Workout Suggestion Page. Provide preferences, such as gender, goals, and training method, to obtain a custom workout plan. Revamp your routine and reach results more effectively with individualized advice.
                     </Typography>
                     <Button variant="contained" className={classes.cardButton}>
                         Learn More
