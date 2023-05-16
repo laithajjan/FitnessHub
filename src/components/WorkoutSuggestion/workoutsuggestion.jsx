@@ -213,6 +213,11 @@ const WorkoutSuggestion = () => {
                         </Box>
                     )}
                 </Grid>
+                <Box sx={{ mt: 4, textAlign: 'center' }}>
+                    <Typography variant="caption" color="text.secondary">
+                        Powered by BMICalculator.com
+                    </Typography>
+                </Box>
             </Grid>
         </Box>
     );

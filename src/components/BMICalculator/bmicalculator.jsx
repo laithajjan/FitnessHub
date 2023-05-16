@@ -142,7 +142,7 @@ const BMICalculator = () => {
             </Container>
             <Box sx={{ mt: 4, textAlign: 'center' }}>
                 <Typography variant="caption" color="text.secondary">
-                    Powered by BMICalculator.com
+                    Powered by FitnessHub
                 </Typography>
             </Box>
         </Box>

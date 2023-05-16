@@ -177,7 +177,13 @@ const NutritionAnalysis = () => {
                     </TableContainer>
                 </Box>
             )}
+            <Box sx={{ mt: 4, textAlign: 'center' }}>
+                <Typography variant="caption" color="text.secondary">
+                    Powered by FitnessHub
+                </Typography>
+            </Box>
         </Container>
+        
     );
 };
 
