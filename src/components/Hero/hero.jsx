@@ -3,6 +3,7 @@ import BMI from "../../assets/3437750214_bmi calculator _xl-beta-v2-2-2.png"
 import CIC from "../../assets/3916107758_Calorie Intake Calculator _xl-beta-v2-2-2.png"
 import ORM from "../../assets/1584193756_One Rep Max Calculator _xl-beta-v2-2-2.png"
 import HeroImage from "../../assets/risen-wang-20jX9b35r_M-unsplash.jpg"
+import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Button, Card, CardMedia, CardContent } from '@material-ui/core';
 
@@ -136,7 +137,7 @@ function Hero() {
                     <Typography variant="body2" color="textSecondary" component="p" className={classes.cardDescription}>
                         Boost your nutrition using FitnessHub's Macronutrient Calculator. Enter age, height, weight, activity level, and goal for a tailored macronutrient plan. Efficiently fuel your body and attain your objectives with personalized recommendations.
                     </Typography>
-                    <Button variant="contained" className={classes.cardButton}>
+                    <Button variant="contained" className={classes.cardButton} component={Link} to="/macro">
                         Learn More
                     </Button>
                 </CardContent>
@@ -153,7 +154,7 @@ function Hero() {
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p" className={classes.cardDescription}>
                         Discover the power of informed eating with FitnessHub's Nutrition Analysis Page. Input your food and quantity, like 200 grams of chicken, to promptly access detailed nutrition facts. Make smarter choices and enhance your diet effortlessly.                    </Typography>
-                    <Button variant="contained" className={classes.cardButton}>
+                    <Button variant="contained" className={classes.cardButton} component={Link} to="/nutrition">
                         Learn More
                     </Button>
                 </CardContent>
@@ -171,7 +172,7 @@ function Hero() {
                     <Typography variant="body2" color="textSecondary" component="p" className={classes.cardDescription}>
                         Improve your fitness through FitnessHub's Workout Suggestion Page. Provide preferences, such as gender, goals, and training method, to obtain a custom workout plan. Revamp your routine and reach results more effectively with individualized advice.
                     </Typography>
-                    <Button variant="contained" className={classes.cardButton}>
+                    <Button variant="contained" className={classes.cardButton} component={Link} to="/workout">
                         Learn More
                     </Button>
                 </CardContent>
