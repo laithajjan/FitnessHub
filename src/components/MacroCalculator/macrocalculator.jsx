@@ -18,6 +18,8 @@ import {
 import { styled } from '@mui/system';
 
 const StyledCard = styled(Card)(({ theme }) => ({
+  marginTop: theme.spacing(4),
+  marginBottom: theme.spacing(4),
   padding: theme.spacing(2),
   textAlign: 'center',
   borderRadius: theme.spacing(1),
@@ -44,6 +46,12 @@ const DietBox = styled(Card)(({ theme }) => ({
 
 const DietTitle = styled(Typography)(({ theme }) => ({
   marginBottom: theme.spacing(1),
+}));
+
+const PoweredBy = styled(Typography)(({ theme }) => ({
+  marginTop: theme.spacing(4),
+  marginBottom: theme.spacing(2),
+  textAlign: 'center',
 }));
 
 const MacroCalculator = () => {
@@ -76,6 +84,7 @@ const MacroCalculator = () => {
     const data = await response.json();
     setResults(data);
   };
+
   const dietColors = {
     'Balanced': {
       background: '#FFA726',
@@ -116,25 +125,16 @@ const MacroCalculator = () => {
               <StyledFormControl>
                 <FormLabel>Gender</FormLabel>
                 <RadioGroup
-                  row
                   value={gender}
                   onChange={(e) => setGender(e.target.value)}
                 >
-                  <FormControlLabel
-                    value="male"
-                    control={<Radio />}
-                    label="Male"
-                  />
-                  <FormControlLabel
-                    value="female"
-                    control={<Radio />}
-                    label="Female"
-                  />
+                  <FormControlLabel value="male" control={<Radio />} label="Male" />
+                  <FormControlLabel value="female" control={<Radio />} label="Female" />
                 </RadioGroup>
               </StyledFormControl>
               <StyledFormControl>
                 <TextField
-                  label={`Height (${unit === 'metric' ? 'cm' : 'in'})`}
+                  label="Height"
                   value={height}
                   onChange={(e) => setHeight(e.target.value)}
                   type="number"
@@ -143,7 +143,7 @@ const MacroCalculator = () => {
               </StyledFormControl>
               <StyledFormControl>
                 <TextField
-                  label={`Weight (${unit === 'metric' ? 'kg' : 'lb'})`}
+                  label="Weight"
                   value={weight}
                   onChange={(e) => setWeight(e.target.value)}
                   type="number"
@@ -152,109 +152,60 @@ const MacroCalculator = () => {
               </StyledFormControl>
               <StyledFormControl>
                 <FormLabel>Unit</FormLabel>
-                <RadioGroup
-                  row
-                  value={unit}
-                  onChange={(e) => setUnit(e.target.value)}
-                >
-                  <FormControlLabel
-                    value="metric"
-                    control={<Radio />}
-                    label="Metric"
-                  />
-                  <FormControlLabel
-                    value="imperial"
-                    control={<Radio />}
-                    label="Imperial"
-                  />
-                </RadioGroup>
+                <Select value={unit} onChange={(e) => setUnit(e.target.value)}>
+                  <MenuItem value="metric">Metric (cm, kg)</MenuItem>
+                  <MenuItem value="imperial">Imperial (inches, lbs)</MenuItem>
+                </Select>
               </StyledFormControl>
               <StyledFormControl>
                 <FormLabel>Activity Level</FormLabel>
-                <Select
-                  value={activityLevel}
-                  onChange={(e) => setActivityLevel(e.target.value)}
-                >
-                  <MenuItem value="light">
-                    Light: exercise 1-3 times a week
-                  </MenuItem>
-                  <MenuItem value="moderate">
-                    Moderate: exercise 4-5 times a week
-                  </MenuItem>
-                  <MenuItem value="active">Active: daily exercise</MenuItem>
-                  <MenuItem value="very_active">
-                    Very Active: intense activity 6-7 times a week
-                  </MenuItem>
+                <Select value={activityLevel} onChange={(e) => setActivityLevel(e.target.value)}>
+                  <MenuItem value="light">Light</MenuItem>
+                  <MenuItem value="moderate">Moderate</MenuItem>
+                  <MenuItem value="heavy">Heavy</MenuItem>
                 </Select>
               </StyledFormControl>
               <StyledFormControl>
                 <FormLabel>Goal</FormLabel>
-                <Select
-                  value={goal}
-                  onChange={(e) => setGoal(e.target.value)}
-                >
-                  <MenuItem value="maintain">Maintain weight</MenuItem>
-                  <MenuItem value="mild_loss">
-                    Mild weight loss (0.5 lb/0.25 kg per week)
-                  </MenuItem>
-                  <MenuItem value="loss">
-                    Weight loss (1 lb/0.5 kg per week)
-                  </MenuItem>
-                  <MenuItem value="extreme_loss">
-                    Extreme weight loss (2 lb/1 kg per week)
-                  </MenuItem>
-                  <MenuItem value="mild_gain">
-                    Mild weight gain (0.5 lb/0.25 kg per week)
-                  </MenuItem>
-                  <MenuItem value="gain">
-                    Weight gain (1 lb/0.5 kg per week)
-                  </MenuItem>
-                  <MenuItem value="extreme_gain">
-                    Extreme weight gain (2 lb/1 kg per week)
-                  </MenuItem>
+                <Select value={goal} onChange={(e) => setGoal(e.target.value)}>
+                  <MenuItem value="lose">Lose Weight</MenuItem>
+                  <MenuItem value="maintain">Maintain Weight</MenuItem>
+                  <MenuItem value="gain">Gain Weight</MenuItem>
                 </Select>
               </StyledFormControl>
-              <Button type="submit" variant="contained" fullWidth color="primary">
-                Calculate Macros
+              <Button type="submit" color="primary" variant="contained">
+                Calculate
               </Button>
             </form>
           </CardContent>
-          {results && (
-            <ResultsSection>
-              <Typography variant="h5" align="center" gutterBottom>
-                Results
-              </Typography>
-              {Object.entries(results).map(([diet, values]) => (
-                <DietBox
-                  key={diet}
-                  style={{
-                    backgroundColor: dietColors[diet].background,
-                    color: dietColors[diet].text,
-                  }}
-                >
-                  <DietTitle variant="h6" align="center" gutterBottom>
-                    {diet}
-                  </DietTitle>
-                  <Typography variant="body1">
-                    Calories: {Math.round(values.calories)}
-                  </Typography>
-                  <Typography variant="body1">
-                    Protein: {Math.round(values.protein)}g
-                  </Typography>
-                  <Typography variant="body1">
-                    Carbs: {Math.round(values.carbs)}g
-                  </Typography>
-                  <Typography variant="body1">
-                    Fat: {Math.round(values.fat)}g
-                  </Typography>
-                </DietBox>
-              ))}
-            </ResultsSection>
-          )}
         </StyledCard>
+        {results && (
+          <ResultsSection>
+            <Typography variant="h4" align="center" gutterBottom>
+              Your Results
+            </Typography>
+            {Object.keys(results).map((diet) => (
+              <DietBox key={diet} style={{ backgroundColor: dietColors[diet].background }}>
+                <DietTitle variant="h5" style={{ color: dietColors[diet].text }}>
+                  {diet}
+                </DietTitle>
+                {Object.keys(results[diet]).map((macro) => (
+                  <Typography key={macro} style={{ color: dietColors[diet].text }}>
+                    {macro}: {results[diet][macro]}g
+                  </Typography>
+                ))}
+              </DietBox>
+            ))}
+          </ResultsSection>
+        )}
+        <PoweredBy variant="h6">
+          Powered by FitnessHub
+        </PoweredBy>
       </Grid>
     </Grid>
   );
 };
 
 export default MacroCalculator;
+
+
