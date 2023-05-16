@@ -88,6 +88,9 @@ const ExerciseTable = () => {
             <Typography variant="h4" className={classes.title}>
                 Search Exercises
             </Typography>
+            <Typography variant="h6" color="textSecondary" align="center" gutterBottom>
+                Discover tailored exercises by specifying your target muscle group. Unleash your potential now!
+            </Typography>
             <Grid container justifyContent="center">
                 <Grid item xs={12} sm={8} md={6} lg={4}>
                     <form className={classes.searchForm} onSubmit={handleSubmit}>
@@ -105,57 +108,59 @@ const ExerciseTable = () => {
                     </form>
                 </Grid>
             </Grid>
-            <TableContainer component={Paper}>
-                <Table className={classes.table} aria-label="exercises table">
-                    <TableHead>
-                        <TableRow>
-                            <TableCell className={classes.tableHeader}>Name</TableCell>
-                            <TableCell className={classes.tableHeader}>Type</TableCell>
-                            <TableCell className={classes.tableHeader}>Muscle</TableCell>
-                            <TableCell className={classes.tableHeader}>Equipment</TableCell>
-                            <TableCell className={classes.tableHeader}>Difficulty</TableCell>
-                            <TableCell className={classes.tableHeader}></TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {exercises.map((exercise, index) => (
-                            <React.Fragment key={exercise.name}>
-                                <TableRow className={classes.tableRow}>
-                                    <TableCell component="th" scope="row">
-                                        {exercise.name}
-                                    </TableCell>
-                                    <TableCell>{exercise.type}</TableCell>
-                                    <TableCell>{exercise.muscle}</TableCell>
-                                    <TableCell>{exercise.equipment}</TableCell>
-                                    <TableCell>{exercise.difficulty}</TableCell>
-                                    <TableCell>
-                                        <Button
-                                            variant="contained"
-                                            color="secondary"
-                                            onClick={() => handleToggleInstructions(index)}
+            {exercises.length > 0 && (
+                <TableContainer component={Paper}>
+                    <Table className={classes.table} aria-label="exercises table">
+                        <TableHead>
+                            <TableRow>
+                                <TableCell className={classes.tableHeader}>Name</TableCell>
+                                <TableCell className={classes.tableHeader}>Type</TableCell>
+                                <TableCell className={classes.tableHeader}>Muscle</TableCell>
+                                <TableCell className={classes.tableHeader}>Equipment</TableCell>
+                                <TableCell className={classes.tableHeader}>Difficulty</TableCell>
+                                <TableCell className={classes.tableHeader}></TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {exercises.map((exercise, index) => (
+                                <React.Fragment key={exercise.name}>
+                                    <TableRow className={classes.tableRow}>
+                                        <TableCell component="th" scope="row">
+                                            {exercise.name}
+                                        </TableCell>
+                                        <TableCell>{exercise.type}</TableCell>
+                                        <TableCell>{exercise.muscle}</TableCell>
+                                        <TableCell>{exercise.equipment}</TableCell>
+                                        <TableCell>{exercise.difficulty}</TableCell>
+                                        <TableCell>
+                                            <Button
+                                                variant="contained"
+                                                color="secondary"
+                                                onClick={() => handleToggleInstructions(index)}
+                                            >
+                                                {openInstructions[index] ? 'Hide Instructions' : 'Show Instructions'}
+                                            </Button>
+                                        </TableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableCell
+                                            className={classes.instructions}
+                                            colSpan={6}
+                                            style={{ paddingBottom: 0, paddingTop: 0 }}
                                         >
-                                            {openInstructions[index] ? 'Hide Instructions' : 'Show Instructions'}
-                                        </Button>
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell
-                                        className={classes.instructions}
-                                        colSpan={6}
-                                        style={{ paddingBottom: 0, paddingTop: 0 }}
-                                    >
-                                        <Collapse in={openInstructions[index]} timeout="auto" unmountOnExit>
-                                            <Typography variant="body2" component="div">
-                                                {exercise.instructions}
-                                            </Typography>
-                                        </Collapse>
-                                    </TableCell>
-                                </TableRow>
-                            </React.Fragment>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
+                                            <Collapse in={openInstructions[index]} timeout="auto" unmountOnExit>
+                                                <Typography variant="body2" component="div">
+                                                    {exercise.instructions}
+                                                </Typography>
+                                            </Collapse>
+                                        </TableCell>
+                                    </TableRow>
+                                </React.Fragment>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+            )}
         </Box>
     );
 };

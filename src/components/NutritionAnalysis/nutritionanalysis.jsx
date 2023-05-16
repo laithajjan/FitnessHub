@@ -54,6 +54,9 @@ const NutritionAnalysis = () => {
                             <Typography variant="h4" component="h1" gutterBottom>
                                 Nutrition Analysis
                             </Typography>
+                            <Typography variant="h6" color="textSecondary" align="center" gutterBottom>
+                                Discover nutrition facts for your favorite foods, for example, type "200 grams of chicken" to get nutritional information!
+                            </Typography>
                             <TextField
                                 label="Enter query"
                                 variant="outlined"
@@ -134,8 +137,8 @@ const NutritionAnalysis = () => {
                                         Total Sodium
                                     </TableCell>
                                     <TableCell align="center">
-                                       
-                                    {sumNutritionData('sodium_mg')} mg
+
+                                        {sumNutritionData('sodium_mg')} mg
                                     </TableCell>
                                 </TableRow>
                                 <TableRow>
