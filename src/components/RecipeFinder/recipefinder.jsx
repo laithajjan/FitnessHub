@@ -163,7 +163,7 @@ const RecipeFinder = () => {
             </Container>
             <Box sx={{ mt: 4, display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100vh' }}>
                 <Typography variant="h6" color="text.secondary" style={{ fontFamily: 'Roboto, sans-serif', fontSize: '1.2rem', textAlign: 'center' }}>
-                    Powered by BMICalculator.com
+                    Powered by FitnessHub
                 </Typography>
             </Box>
         </Box>

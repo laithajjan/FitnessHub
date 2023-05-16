@@ -107,7 +107,6 @@ const NutritionAnalysis = () => {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {/* Your existing table rows */}
                                 <TableRow>
                                     <TableCell component="th" scope="row">
                                         Total Calories

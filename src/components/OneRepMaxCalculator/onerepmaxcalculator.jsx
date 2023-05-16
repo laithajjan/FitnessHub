@@ -132,7 +132,7 @@ const OneRepMaxCalculator = () => {
       </Container>
       <Box sx={{ mt: 4, textAlign: 'center' }}>
         <Typography variant="caption" color="text.secondary">
-          Powered by OneRepMaxCalculator.com
+          Powered by FitnessHub
         </Typography>
       </Box>
     </Box>
