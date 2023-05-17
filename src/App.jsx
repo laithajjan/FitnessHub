@@ -11,6 +11,7 @@ import NutritionAnalysis from './components/NutritionAnalysis/nutritionanalysis'
 import OneRepMaxCalculator from './components/OneRepMaxCalculator/onerepmaxcalculator';
 import RecipeFinder from './components/RecipeFinder/recipefinder';
 import ExerciseTable from './components/MuscleFinder/muscleFinder';
+import CaloriesBurned from './components/CaloriesBurned/caloriesBurned';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/ORM" element={<OneRepMaxCalculator/>} />
           <Route path="/recipe" element={<RecipeFinder/>} />
           <Route path="/muscle" element={<ExerciseTable/>} />
+          <Route path="/caloriesburned" element={<CaloriesBurned />} />
         </Routes>
         <Footer />
       </Router>

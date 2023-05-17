@@ -24,6 +24,7 @@ const mainMenuItems = [
         subMenu: [
             { label: 'Workout Suggestions', link: '/workout' },
             { label: 'Exercises by Muscle', link: '/muscle' },
+            { label: 'Calories burned by Activity', link: '/caloriesburned' },
         ],
     },
     {
